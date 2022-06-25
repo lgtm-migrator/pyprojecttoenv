@@ -1,0 +1,116 @@
+[project]
+name = "pyprojecttoenv"
+version = "0.1.0"
+description = "Generate environment files for dependencies specified in pyproject.toml"
+authors = [
+    {name = "Ryan Kuhns"},
+]
+maintainers = [
+    {name = "Ryan Kuhns"},
+]
+readme = "README.md"
+keywords = [
+    "packaging",
+    "conda",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+requires-python = ">=3.7,<3.11"
+dependencies = ["tomli"]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "mypy",
+    "pytest",
+    "pytest-cov",
+    "coverage",
+    "isort",
+    "flake8",
+    "black",
+    "pydocstyle",
+    "nbqa",
+    "flake8-bugbear",
+    "flake8-builtins",
+    "flake8-quotes",
+    "flake8-comprehensions",
+    "pandas-vet",
+    "flake8-print",
+    "pep8-naming",
+    "doc8",
+]
+
+docs = [
+    "jupyter",
+    "numpydoc",
+    "pydata-sphinx-theme",
+    "sphinx_issues",
+    "sphinx-gallery",
+    "sphinx-panels",
+    "sphinx",
+]
+
+test = [
+    "pytest",
+    "coverage",
+    "pytest-cov",
+    "safety",
+]
+
+[project.urls]
+homepage = "https://github.com/rnkuhns/pyprojecttoenv"
+repository = "https://github.com/rnkuhns/pyprojecttoenv"
+documentation = "https://github.com/rnkuhns/pyprojecttoenv"
+download = "https://github.com/rnkuhns/pyprojecttoenv/#files"
+
+[project.license]
+file = "LICENSE"
+
+[build-system]
+requires = ["setuptools", "wheel", "toml", "build"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+# ignore certain folders
+addopts = [
+    "--doctest-modules"
+]
+
+[tool.isort]
+profile = "black"
+src_paths = ["isort", "test"]
+multi_line_output = 3
+known_first_party = ["baseobject"]
+
+[tool.black]
+line-length = 88
+extend-exclude = ["^/setup.py", "docs/conf.py"]
+
+[tool.pydocstyle]
+convention = "numpy"
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.coverage.run]
+source = ["baseobject"]
+omit = ["*/setup.py", "tests/*"]
+
+[tool.doc8]
+max-line-length=88
+
+[tool.bandit]
+exclude_dirs = ["*/tests/*"]
