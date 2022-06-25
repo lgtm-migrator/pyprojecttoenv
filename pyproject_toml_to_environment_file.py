@@ -5,7 +5,10 @@ import tomli
 import yaml
 from typing import Any, Dict, List, Sequence
 
-# TODO: Add ability to specify
+
+# TODO: Add ability to specify dependency channels (to handle pip only deps)
+# TODO: Investigate automatic renaming of dependencies like pypi-mapping at
+# https://github.com/conda-incubator/conda-lock
 # TODO: Switch to using get() to retrive from dicts
 def create_parser() -> argparse.ArgumentParser:
     """Create command line parser.
