@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 """Create environment yaml files from pyproject.toml."""
 import argparse
 import os
+from typing import Any, Dict, List, Sequence
+
 import tomli
 import yaml
-from typing import Any, Dict, List, Sequence
 
 
 # TODO: Add ability to specify dependency channels (to handle pip only deps)

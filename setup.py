@@ -42,7 +42,10 @@ def setup_package():
         maintainer_email=pyproject["project"]["maintainers"][0]["email"],
         maintainer=pyproject["project"]["maintainers"][0]["name"],
         name=pyproject["project"]["name"],
-        packages=find_packages(where=".", exclude=["tests", "tests.*"],),
+        packages=find_packages(
+            where=".",
+            exclude=["tests", "tests.*"],
+        ),
         project_urls=pyproject["project"]["urls"],
         python_requires=pyproject["project"]["requires-python"],
         setup_requires=pyproject["build-system"]["requires"],
